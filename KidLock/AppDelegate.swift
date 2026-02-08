@@ -160,10 +160,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 let flags = event.flags
 
                 if keyCode == mySelf.unlockKeyCode && flags.contains(mySelf.unlockFlags) {
+                    NSLog("🔓 Unlock shortcut pressed → exiting KidLock")
+
+                    // supaya input langsung normal sebelum keluar (optional, tapi enak)
                     mySelf.isLocked = false
                     mySelf.stopAutoUnlockTimer()
-                    NSLog("🔓 Unlocked by shortcut")
-                    // Telan event unlock juga
+
+                    // terminate app HARUS di main thread
+                    DispatchQueue.main.async {
+                        NSApp.terminate(nil)
+                    }
+
+                    // telan event unlock juga
                     return nil
                 }
             }
