@@ -1,0 +1,68 @@
+# =========================
+# macOS
+# =========================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# =========================
+# Xcode
+# =========================
+# Build products
+build/
+DerivedData/
+
+# User-specific settings
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+
+# Xcode workspace
+*.xcworkspace
+!default.xcworkspace
+
+# Swift Package Manager
+.build/
+Package.resolved
+
+# Xcode 8+ build artifacts
+*.xcscmblueprint
+*.xccheckout
+
+# =========================
+# CocoaPods
+# =========================
+Pods/
+Podfile.lock
+
+# =========================
+# Carthage
+# =========================
+Carthage/Build/
+
+# =========================
+# Fastlane
+# =========================
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# =========================
+# Logs & temporary files
+# =========================
+*.log
+*.tmp
+
+# =========================
+# Playgrounds
+# =========================
+timeline.xctimeline
+playground.xcworkspace
+
+# =========================
+# Environment files
+# =========================
+.env
