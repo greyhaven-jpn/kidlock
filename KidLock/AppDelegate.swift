@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // AUTO-LOCK saat app dibuka
         isLocked = true
-        startAutoUnlockTimer() // optional: hapus baris ini kalau tidak mau auto-unlock
+        //startAutoUnlockTimer() // optional: hapus baris ini kalau tidak mau auto-unlock
     }
 
     func applicationWillTerminate(_ notification: Notification) {
@@ -82,18 +82,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc private func toggleLock() {
         isLocked.toggle()
 
-        if isLocked {
-            startAutoUnlockTimer()
-        } else {
-            stopAutoUnlockTimer()
-        }
+//        if isLocked {
+//            startAutoUnlockTimer()
+//        } else {
+//            stopAutoUnlockTimer()
+//        }
 
         NSLog(isLocked ? "🔒 LOCKED" : "🔓 UNLOCKED")
     }
 
     @objc private func forceUnlock() {
         isLocked = false
-        stopAutoUnlockTimer()
+//        stopAutoUnlockTimer()
         NSLog("🔓 Force unlocked from menu")
     }
 
@@ -102,18 +102,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     // MARK: - Auto Unlock
-    private func startAutoUnlockTimer() {
-        stopAutoUnlockTimer()
-        autoUnlockTimer = Timer.scheduledTimer(withTimeInterval: autoUnlockSeconds, repeats: false) { [weak self] _ in
-            self?.isLocked = false
-            NSLog("⏱️ Auto-unlock triggered")
-        }
-    }
+//    private func startAutoUnlockTimer() {
+//        stopAutoUnlockTimer()
+//        autoUnlockTimer = Timer.scheduledTimer(withTimeInterval: autoUnlockSeconds, repeats: false) { [weak self] _ in
+//            self?.isLocked = false
+//            NSLog("⏱️ Auto-unlock triggered")
+//        }
+//    }
 
-    private func stopAutoUnlockTimer() {
-        autoUnlockTimer?.invalidate()
-        autoUnlockTimer = nil
-    }
+//    private func stopAutoUnlockTimer() {
+//        autoUnlockTimer?.invalidate()
+//        autoUnlockTimer = nil
+//    }
 
     // MARK: - Event Tap Helpers
     private func mask(for types: [CGEventType]) -> CGEventMask {
@@ -164,7 +164,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
                     // supaya input langsung normal sebelum keluar (optional, tapi enak)
                     mySelf.isLocked = false
-                    mySelf.stopAutoUnlockTimer()
+//                    mySelf.stopAutoUnlockTimer()
 
                     // terminate app HARUS di main thread
                     DispatchQueue.main.async {
